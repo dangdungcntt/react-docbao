@@ -1,0 +1,9 @@
+.list-group {
+    max-height: calc(100vh - 150px);
+    overflow: overlay;
+}
+
+#formControlsSelect {
+  margin-left: 10px;
+  margin-right: 10px;
+}
