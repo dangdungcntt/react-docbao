@@ -10,18 +10,18 @@ import ListNews from '../components/ListNews';
 export default class Page extends Component {
   constructor(props) {
     super(props);
-    const { Storage } = props;
+    const { storage } = props;
     this.state = {
-      tabsSelected : Storage.addTabs([1, 2, 3, 4]),
-      tabsUnSelected: Storage.getTabsUnSelected()
+      tabsSelected : storage.addTabs([1, 2, 3, 4]),
+      tabsUnSelected: storage.getTabsUnSelected()
     }
   }
   add() {
-    const { Storage } = this.props;
+    const { storage } = this.props;
     const value = this.select.value;
     this.setState({
-      tabsSelected: Storage.addTabs([value]),
-      tabsUnSelected: Storage.getTabsUnSelected(0)
+      tabsSelected: storage.addTabs([value]),
+      tabsUnSelected: storage.getTabsUnSelected(0)
     });
   }
   render() {
@@ -38,15 +38,15 @@ export default class Page extends Component {
               <FormGroup controlId="formControlsSelect">
                 <ControlLabel>Thêm loại tin  </ControlLabel>
                 <FormControl 
-                  componentClass="select"
-                  inputRef={ref => { this.select = ref; }}
+                    componentClass="select"
+                    inputRef={ref => { this.select = ref; }}
                 >
                   {
                     tabsUnSelected.map((tab) => {
                       return (
                         <option 
-                          value={`${tab.eventKey}`} 
-                          key={`${tab.eventKey}`}
+                            value={`${tab.eventKey}`} 
+                            key={`${tab.eventKey}`}
                         >
                           {`${tab.tabLabel}`}
                         </option>
@@ -67,8 +67,8 @@ export default class Page extends Component {
                   tabsSelected.map((tab) => {
                     return (
                       <NavItem 
-                        eventKey={`${tab.eventKey}`} 
-                        key={`${tab.eventKey}`}
+                          eventKey={`${tab.eventKey}`} 
+                          key={`${tab.eventKey}`}
                       >
                         {tab.tabLabel}
                       </NavItem>
@@ -83,8 +83,8 @@ export default class Page extends Component {
                   tabsSelected.map((tab) => {
                     return (
                       <Tab.Pane 
-                        eventKey={`${tab.eventKey}`} 
-                        key={`${tab.eventKey}`}
+                          eventKey={`${tab.eventKey}`} 
+                          key={`${tab.eventKey}`}
                       >
                         <ListNews 
                             apiLink={apiLink} 

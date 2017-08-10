@@ -122,22 +122,4 @@ const allTabs = [
   }
 ];
 
-const selectedTabs = [];
-
-const addTabs = (listTabKey) => {
-  listTabKey.forEach((key) => {
-      selectedTabs.push(allTabs[key]);
-    });
-  return [...selectedTabs];
-};
-
-const getTabsUnSelected = () => {
-  return allTabs.filter((tab) => {
-    return !selectedTabs.includes(tab) && tab.eventKey;
-  });
-};
-
-module.exports = {
-  addTabs,
-  getTabsUnSelected
-}
+export default allTabs;
